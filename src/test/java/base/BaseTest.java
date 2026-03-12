@@ -4,8 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import utils.PropertyReader;
 
 import java.time.Duration;
+import java.util.Properties;
 
 public class BaseTest {
 
@@ -18,14 +20,14 @@ public class BaseTest {
         driver = DriverFactory.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        driver.get("https://www.myntra.com/");
+        Properties prop = PropertyReader.readProperty();
+        driver.get(prop.getProperty("base.url"));
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod
     public void teardown() {
-
         DriverFactory.quitDriver();
     }
 }
