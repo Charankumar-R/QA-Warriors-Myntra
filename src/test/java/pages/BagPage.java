@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import java.time.Duration;
 
 public class BagPage extends BasePage {
@@ -26,18 +25,6 @@ public class BagPage extends BasePage {
     // discounted price
     @FindBy(xpath = "//span[contains(@class,'discount')]")
     WebElement priceAfter;
-
-    // Qty button (opens quantity list)
-    @FindBy(xpath = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[2]")
-    WebElement quantityButton;
-
-
-    @FindBy(xpath="//div[contains(@class,'dialogs-base-display') and text()='10']")
-    WebElement qtyTen;
-
-    // DONE button
-    @FindBy(xpath="//div[normalize-space()='DONE']")
-    WebElement doneButton;
 
     public int getPriceBeforeCoupon() {
 
@@ -76,5 +63,39 @@ public class BagPage extends BasePage {
 
         String qty = quantityDropdown.getText();
         return Integer.parseInt(qty);
+    }
+    public void enterInvalidCoupon(String coupon) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(couponInputField));
+
+        couponInputField.clear();
+        couponInputField.sendKeys(coupon);
+    }
+
+    public void applyTypedCoupon() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(applyTypedCouponButton));
+
+        applyTypedCouponButton.click();
+    }
+
+    public String getInvalidCouponMessage() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(invalidCouponMessage));
+
+        return invalidCouponMessage.getText();
+    }
+
+    @FindBy(xpath = "//div[@data-method='couponInputApply']")
+    WebElement checkButton;
+
+    public void clickCheckButton() {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(checkButton));
+        checkButton.click();
     }
 }
