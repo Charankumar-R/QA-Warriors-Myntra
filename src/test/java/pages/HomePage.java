@@ -1,10 +1,13 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends pages.BasePage {
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -15,7 +18,17 @@ public class HomePage extends pages.BasePage {
 
     public void searchProduct(String product) {
 
+        wait.until(ExpectedConditions.visibilityOf(searchBox));
+        searchBox.clear();
         searchBox.sendKeys(product);
-        searchBox.submit();
+        searchBox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//li[contains(@class,'product-base')]")
+        ));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//li[contains(@class,'product-base')]")
+        ));
+
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="TestSuite" verbose="1">
+
+    <listeners>
+        <listener class-name="listeners.AllureListener"/>
+    </listeners>
+
+    <test name="TestCases">
+
+        <classes>
+            <class name="tests.AddToBagWithoutSizeTest"/>
+            <class name="tests.ValidCouponTest"/>
+            <class name="tests.ValidCouponWithSortingTest"/>
+            <class name="tests.DynamicQtyLimitTest"/>
+            <class name="tests.InvalidCouponTest"/>
+        </classes>
+
+    </test>
+
+</suite>
