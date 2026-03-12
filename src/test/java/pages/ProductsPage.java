@@ -22,4 +22,18 @@ public class ProductsPage extends BasePage {
         driver.switchTo().window(tab);
     }
     }
+
+    public void sortByCustomerRating() {
+        String url = driver.getCurrentUrl();
+
+        if (url.contains("sort=")) {
+            url = url.replaceAll("sort=[^&]*", "sort=Customer%20Rating");
+        } else if (url.contains("?")) {
+            url = url + "&sort=Customer%20Rating";
+        } else {
+            url = url + "?sort=Customer%20Rating";
+        }
+
+        driver.get(url);
+    }
 }
