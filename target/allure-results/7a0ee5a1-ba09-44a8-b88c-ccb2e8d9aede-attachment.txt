@@ -1,0 +1,9 @@
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div class="couponsForm-base-applyButton couponsForm-base-enabled" data-method="couponInputApply">...</div> is not clickable at point (1133, 131). Other element would receive the click: <div class="loader-base-backdrop"></div>
+  (Session info: chrome=146.0.7680.72)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cfd6bc0f1bdfeabb1ff17e0ae13a405d, clickElement {id=f.B908F1D77647A825DA05E686E41DF5AC.d.26D564661D0C65720765D0A4583A4E42.e.229}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.72, chrome: {chromedriverVersion: 146.0.7680.72 (cb10bb07c0a5..., userDataDir: C:\Users\chara\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51500}, goog:processID: 20168, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51500/devtoo..., se:cdpVersion: 146.0.7680.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (cfd6bc0f1bdfeabb1ff17e0ae13a405d)] -> xpath: //div[@data-method='couponInputApply']]
+Session ID: cfd6bc0f1bdfeabb1ff17e0ae13a405d
