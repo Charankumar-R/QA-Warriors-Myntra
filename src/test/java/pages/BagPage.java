@@ -57,19 +57,24 @@ public class BagPage extends BasePage {
         return Integer.parseInt(price);
     }
 
+
+    // quantity dropdown
+    @FindBy(xpath = "//div[contains(@class,'itemComponents-base-quantity')]")
+    WebElement quantityDropdown;
+
+    // quantity option 10
+    @FindBy(xpath = "//li[text()='2']")
+    WebElement quantity10;
+
     public void selectMaxQuantity() {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        quantityDropdown.click();
+        quantity10.click();
+    }
 
-        // Open quantity popup
-        wait.until(ExpectedConditions.elementToBeClickable(quantityButton));
-        quantityButton.click();
+    public int getSelectedQuantity() {
 
-        // click quantity 10
-        wait.until(ExpectedConditions.elementToBeClickable(qtyTen)).click();
-
-        // click DONE
-        wait.until(ExpectedConditions.elementToBeClickable(doneButton)).click();
-
+        String qty = quantityDropdown.getText();
+        return Integer.parseInt(qty);
     }
 }
