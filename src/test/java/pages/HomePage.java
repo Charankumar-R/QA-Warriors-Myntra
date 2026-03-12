@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,6 @@ public class HomePage extends BasePage {
     public void searchProduct(String product) {
 
         searchBox.sendKeys(product);
-        searchBox.submit();
+        searchBox.sendKeys(Keys.ENTER);
     }
 }

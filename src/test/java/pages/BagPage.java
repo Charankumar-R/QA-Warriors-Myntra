@@ -3,6 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BagPage extends BasePage {
 
@@ -10,13 +14,16 @@ public class BagPage extends BasePage {
         super(driver);
     }
 
+    // price before coupon
     @FindBy(xpath = "//span[contains(@class,'price')]")
     WebElement priceBefore;
 
-    @FindBy(xpath = "//button[contains(text(),'Apply')]")
+    // APPLY coupon button
+    @FindBy(xpath = "//div[text()='APPLY']/parent::button")
     WebElement applyCouponButton;
 
-    @FindBy(xpath = "//span[contains(@class,'discounted-price')]")
+    // discounted price
+    @FindBy(xpath = "//span[contains(@class,'discount')]")
     WebElement priceAfter;
 
     public int getPriceBeforeCoupon() {
@@ -26,7 +33,8 @@ public class BagPage extends BasePage {
     }
 
     public void applyCoupon() {
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(applyCouponButton));
         applyCouponButton.click();
     }
 
