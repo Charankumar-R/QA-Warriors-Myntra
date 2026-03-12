@@ -1,0 +1,9 @@
+org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <p class="size-buttons-unified-size">...</p> is not clickable at point (1195, 637). Other element would receive the click: <span class="size-buttons-size-strike-show"></span>
+  (Session info: chrome=146.0.7680.72)
+Build info: version: '4.40.0', revision: 'b3333f1'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [197dce494d846f6caa0db574778da2a0, clickElement {id=f.59819699F3CF011F9F14A077CEAA724E.d.1C07D187C20BE298979646EFE5C77896.e.41}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.72, chrome: {chromedriverVersion: 146.0.7680.72 (cb10bb07c0a5..., userDataDir: C:\Users\chara\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51645}, goog:processID: 10052, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51645/devtoo..., se:cdpVersion: 146.0.7680.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (197dce494d846f6caa0db574778da2a0)] -> xpath: //p[text()='M']]
+Session ID: 197dce494d846f6caa0db574778da2a0

@@ -1,0 +1,2 @@
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@placeholder='Search for products, brands and more']'
+(tried for 15 seconds with 500 milliseconds interval)
