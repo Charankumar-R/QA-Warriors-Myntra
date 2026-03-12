@@ -16,5 +16,8 @@ public class ProductsPage extends BasePage {
     public void selectFirstProduct() {
 
         firstProduct.click();
+        for (String tab : driver.getWindowHandles()) {
+        driver.switchTo().window(tab);
+    }
     }
 }
