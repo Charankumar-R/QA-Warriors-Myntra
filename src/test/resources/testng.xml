@@ -1,0 +1,4 @@
+<classes>
+    <class name="tests.ValidCouponTest"/>
+    <class name="tests.InvalidCouponTest"/>
+</classes>
