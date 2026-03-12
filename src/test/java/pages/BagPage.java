@@ -64,6 +64,19 @@ public class BagPage extends BasePage {
         String qty = quantityDropdown.getText();
         return Integer.parseInt(qty);
     }
+
+    // coupon input field
+    @FindBy(xpath = "//input[contains(@placeholder,'coupon')]")
+    WebElement couponInputField;
+
+    // apply coupon button (for typed coupon)
+    @FindBy(xpath = "//button[contains(text(),'Apply')]")
+    WebElement applyTypedCouponButton;
+
+    // invalid coupon warning message
+    @FindBy(className = "couponsForm-base-errorMessage")
+    WebElement invalidCouponMessage;
+
     public void enterInvalidCoupon(String coupon) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

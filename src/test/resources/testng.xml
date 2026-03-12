@@ -13,6 +13,7 @@
             <class name="tests.ValidCouponTest"/>
             <class name="tests.ValidCouponWithSortingTest"/>
             <class name="tests.DynamicQtyLimitTest"/>
+            <class name="tests.InvalidCouponTest"/>
         </classes>
 
     </test>
