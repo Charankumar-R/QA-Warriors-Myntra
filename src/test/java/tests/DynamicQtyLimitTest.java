@@ -11,6 +11,7 @@ import pages.HomePage;
 import pages.ProductsPage;
 import pages.ProductPage;
 import pages.BagPage;
+import utils.ExcelUtils;
 
 @Feature("Quantity Validation")
 public class DynamicQtyLimitTest extends BaseTest {
@@ -20,10 +21,12 @@ public class DynamicQtyLimitTest extends BaseTest {
     @Description("Verify that user can select maximum quantity available for a product")
     public void dynamicQtyLimit() {
 
+        String product = ExcelUtils.getCellData(1,1);
+
         HomePage homePage = new HomePage(driver);
 
-        Allure.step("Search product: Men T-shirt");
-        homePage.searchProduct("Men T-shirt");
+        Allure.step("Search product from Excel");
+        homePage.searchProduct(product);
 
         ProductsPage productsPage = new ProductsPage(driver);
 
@@ -46,14 +49,19 @@ public class DynamicQtyLimitTest extends BaseTest {
         Allure.step("Select maximum quantity (10)");
         bagPage.selectMaxQuantity();
 
-        Allure.step("Capture selected quantity");
         int selectedQty = bagPage.getSelectedQuantity();
 
         System.out.println("Selected Quantity: " + selectedQty);
 
         Allure.step("Validate quantity is updated correctly");
 
-        Assert.assertEquals(selectedQty, 10,
+        if(selectedQty == 10){
+            ExcelUtils.setCellData(1,3,"PASS");
+        }else{
+            ExcelUtils.setCellData(1,3,"FAIL");
+        }
+
+        Assert.assertEquals(selectedQty,10,
                 "Maximum quantity not selected correctly");
     }
 }

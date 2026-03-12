@@ -50,7 +50,7 @@ public class BagPage extends BasePage {
     WebElement quantityDropdown;
 
     // quantity option 10
-    @FindBy(xpath = "//li[text()='2']")
+    @FindBy(xpath = "//li[text()='10']")
     WebElement quantity10;
 
     public void selectMaxQuantity() {
