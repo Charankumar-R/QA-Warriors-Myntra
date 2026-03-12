@@ -11,7 +11,7 @@ public class ProductPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//p[text()='M']")
+    @FindBy(xpath = "//p[text()='S']")
     WebElement sizeOption;
 
     @FindBy(xpath = "//div[text()='ADD TO BAG']")

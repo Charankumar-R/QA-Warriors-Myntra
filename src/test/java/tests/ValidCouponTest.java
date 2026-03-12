@@ -9,6 +9,7 @@ import pages.HomePage;
 import pages.ProductsPage;
 import pages.ProductPage;
 import pages.BagPage;
+import utils.ExcelUtils;
 
 public class ValidCouponTest extends BaseTest {
 
@@ -16,11 +17,15 @@ public class ValidCouponTest extends BaseTest {
     @Description("Validate that a valid coupon reduces the product price")
     public void validCouponTest() {
 
+        String product = ExcelUtils.getCellData(1,1);
+
         HomePage homePage = new HomePage(driver);
-        Allure.step("Search Product");
-        homePage.searchProduct("Men T-shirt");
+
+        Allure.step("Search Product from Excel");
+        homePage.searchProduct(product);
 
         ProductsPage productsPage = new ProductsPage(driver);
+
         Allure.step("Select Product");
         productsPage.selectFirstProduct();
 
@@ -46,10 +51,19 @@ public class ValidCouponTest extends BaseTest {
         Allure.step("Capture price after coupon");
         int priceAfter = bagPage.getPriceAfterCoupon();
 
-        Allure.step("Validate discount applied");
+        Allure.step("Write values to Excel");
+
+        ExcelUtils.setCellData(1,2, product); // Name
+        ExcelUtils.setCellData(1,3, String.valueOf(priceBefore));
+        ExcelUtils.setCellData(1,4, String.valueOf(priceAfter));
+
+        if(priceAfter < priceBefore){
+            ExcelUtils.setCellData(1,5,"PASS");
+        }else{
+            ExcelUtils.setCellData(1,5,"FAIL");
+        }
 
         Assert.assertTrue(priceAfter < priceBefore,
                 "Coupon discount not applied. Price before: " + priceBefore + " Price after: " + priceAfter);
-
     }
 }
