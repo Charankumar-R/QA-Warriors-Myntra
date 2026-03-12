@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,5 +22,13 @@ public class HomePage extends BasePage {
         searchBox.clear();
         searchBox.sendKeys(product);
         searchBox.sendKeys(Keys.ENTER);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//li[contains(@class,'product-base')]")
+        ));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//li[contains(@class,'product-base')]")
+        ));
+
     }
 }

@@ -20,7 +20,14 @@ public class AllureListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
+
         System.out.println("PASSED: " + result.getName());
+
+        WebDriver driver = DriverFactory.getDriver();
+
+        if (driver != null) {
+            attachScreenshot(driver, "Success Screenshot");
+        }
     }
 
     @Override
@@ -31,15 +38,7 @@ public class AllureListener implements ITestListener {
         WebDriver driver = DriverFactory.getDriver();
 
         if (driver != null) {
-
-            byte[] screenshot =
-                    ((TakesScreenshot) driver)
-                            .getScreenshotAs(OutputType.BYTES);
-
-            Allure.addAttachment(
-                    "Failure Screenshot",
-                    new ByteArrayInputStream(screenshot)
-            );
+            attachScreenshot(driver, "Failure Screenshot");
         }
     }
 
@@ -56,5 +55,17 @@ public class AllureListener implements ITestListener {
     @Override
     public void onFinish(ITestContext context) {
         System.out.println("Execution Finished");
+    }
+
+    private void attachScreenshot(WebDriver driver, String name) {
+
+        byte[] screenshot =
+                ((TakesScreenshot) driver)
+                        .getScreenshotAs(OutputType.BYTES);
+
+        Allure.addAttachment(
+                name,
+                new ByteArrayInputStream(screenshot)
+        );
     }
 }

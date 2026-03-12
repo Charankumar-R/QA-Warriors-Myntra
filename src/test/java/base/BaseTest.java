@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import utils.PropertyReader;
 
 import java.time.Duration;
 import java.util.Properties;
 
+@Listeners(listeners.AllureListener.class)
 public class BaseTest {
 
     protected WebDriver driver;

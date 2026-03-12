@@ -20,6 +20,9 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//span[text()='Bag']")
     WebElement bagButton;
 
+    @FindBy(xpath = "//span[contains(text(),'select')]")
+    WebElement sizeErrorMessage;
+
     public void selectSize() {
 
         wait.until(ExpectedConditions.elementToBeClickable(sizeOption));
@@ -36,5 +39,14 @@ public class ProductPage extends BasePage {
 
         wait.until(ExpectedConditions.elementToBeClickable(bagButton));
         bagButton.click();
+    }
+        public void clickAddToBagWithoutSize() {
+
+        addToBagButton.click();
+    }
+
+    public String getSizeErrorMessage() {
+
+        return sizeErrorMessage.getText();
     }
 }
