@@ -19,6 +19,8 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         driver.get("https://www.myntra.com/");
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod
